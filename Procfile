@@ -1,0 +1,1 @@
+web: gunicorn Eatler.wsgi --log-file
