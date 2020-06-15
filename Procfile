@@ -1,1 +1,1 @@
-web: gunicorn Eatler.wsgi --log-file
+web: gunicorn Eatler.wsgi --log-file -
