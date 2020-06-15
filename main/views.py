@@ -272,13 +272,13 @@ def MenuView(request):
         #delivery
         else:
             address=locality+" "+city
-            url='http://127.0.0.1:8000/main_api/nearbyRestaurant_get?address=' + address + '&city='+ city
+            url='https://agile-brushlands-99968.herokuapp.com/main_api/nearbyRestaurant_get?address=' + address + '&city='+ city
             response=requests.get(url)
             restaurant_obj=response.json()
             if restaurant_obj['status']=='success':
                 del restaurant_obj['status']
                 restaurant1=restaurant_obj['0']
-                url_product='http://127.0.0.1:8000/main_api/product_get?restaurant='+ restaurant1['name']
+                url_product='https://agile-brushlands-99968.herokuapp.com/main_api/product_get?restaurant='+ restaurant1['name']
                 response_products=requests.get(url_product)
                 products=response_products.json()
                 dump_products=json.dumps(products)
@@ -297,13 +297,13 @@ def DeliveryMenuView(request):
         name=request.POST.get('restaurant')
         restaurant=Restaurant.objects.filter(name=name).first()
         address=restaurant.locality+" "+restaurant.city
-        url='http://127.0.0.1:8000/main_api/nearbyRestaurant_get?address=' + address + '&city='+ restaurant.city
+        url='https://agile-brushlands-99968.herokuapp.com/main_api/nearbyRestaurant_get?address=' + address + '&city='+ restaurant.city
         response=requests.get(url)
         restaurant_obj=response.json()            #all restaurant object
         if restaurant_obj['status']=='success':
             del restaurant_obj['status']
             # restaurant1=restaurant_obj['r']
-            url_product='http://127.0.0.1:8000/main_api/product_get?restaurant='+ restaurant.name
+            url_product='https://agile-brushlands-99968.herokuapp.com/main_api/product_get?restaurant='+ restaurant.name
             response_products=requests.get(url_product)
             products=response_products.json()
             dump_products=json.dumps(products)
@@ -317,7 +317,7 @@ def DeliveryMenuView(request):
 def RestaurantMenuView(request,pk):
     restaurant=Restaurant.objects.filter(pk=pk).first()
     restaurant_obj=Restaurant.objects.filter(pk=pk)[0]
-    url_product='http://127.0.0.1:8000/main_api/product_get?restaurant='+ restaurant.name
+    url_product='https://agile-brushlands-99968.herokuapp.com/main_api/product_get?restaurant='+ restaurant.name
     response_products=requests.get(url_product)
     products=response_products.json()
     dump_products=json.dumps(products)
