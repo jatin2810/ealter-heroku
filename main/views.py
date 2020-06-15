@@ -438,7 +438,7 @@ def CheckoutView(request):
                 'INDUSTRY_TYPE_ID':'Retail',
                 'WEBSITE':'WEBSTAGING',
                 'CHANNEL_ID':'WEB',
-                'CALLBACK_URL':'http://127.0.0.1:8000/index/handleRequest/',
+                'CALLBACK_URL':'https://agile-brushlands-99968.herokuapp.com/index/handleRequest/',
             }
             data_dict['CHECKSUMHASH']=Checksum.generate_checksum(data_dict,MERCHANT_KEY)
             return render(request,'main/paytm.html',{'param_dict':data_dict})
@@ -528,7 +528,7 @@ def CheckoutTakeawayView(request):
                 'INDUSTRY_TYPE_ID':'Retail',
                 'WEBSITE':'WEBSTAGING',
                 'CHANNEL_ID':'WEB',
-                'CALLBACK_URL':'http://127.0.0.1:8000/index/handleRequest/',
+                'CALLBACK_URL':'https://agile-brushlands-99968.herokuapp.com/index/handleRequest/',
 
             }
             data_dict['CHECKSUMHASH']=Checksum.generate_checksum(data_dict,MERCHANT_KEY)
@@ -678,7 +678,7 @@ def chatbotCheckout(request):
                     'INDUSTRY_TYPE_ID':'Retail',
                     'WEBSITE':'WEBSTAGING',
                     'CHANNEL_ID':'WEB',
-                    'CALLBACK_URL':'http://127.0.0.1:8000/index/handleRequest/',
+                    'CALLBACK_URL':'https://agile-brushlands-99968.herokuapp.com/index/handleRequest/',
                 }
                 data_dict['CHECKSUMHASH']=Checksum.generate_checksum(data_dict,MERCHANT_KEY)
                 return render(request,'main/paytm.html',{'param_dict':data_dict})
@@ -763,7 +763,7 @@ def chatbotCheckout(request):
                     'INDUSTRY_TYPE_ID':'Retail',
                     'WEBSITE':'WEBSTAGING',
                     'CHANNEL_ID':'WEB',
-                    'CALLBACK_URL':'http://127.0.0.1:8000/index/handleRequest/',
+                    'CALLBACK_URL':'https://agile-brushlands-99968.herokuapp.com/index/handleRequest/',
                 }
                 data_dict['CHECKSUMHASH']=Checksum.generate_checksum(data_dict,MERCHANT_KEY)
                 return render(request,'main/paytm.html',{'param_dict':data_dict})
@@ -936,7 +936,7 @@ def detect_intent(text_to_be_analyzed,user,SESSION_ID):
         # print(response.query_result.parameters.fields)
         locality = response.query_result.parameters.fields['Locality'].string_value
         city = response.query_result.parameters.fields['City'].string_value
-        add_request = requests.get('http://127.0.0.1:8000/main_api/nearbyRestaurant_get/?address=' + locality + ' ' + city + '&city=' + city)
+        add_request = requests.get('https://agile-brushlands-99968.herokuapp.com/main_api/nearbyRestaurant_get/?address=' + locality + ' ' + city + '&city=' + city)
         add_request = add_request.json()
         current_time = datetime.now().time()
         for key in add_request:
