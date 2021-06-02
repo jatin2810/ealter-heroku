@@ -30,5 +30,5 @@ rsa==4.6
 six==1.15.0
 sqlparse==0.3.1
 twilio==6.42.0
-urllib3==1.25.9
+urllib3==1.26.5
 whitenoise==5.1.0
