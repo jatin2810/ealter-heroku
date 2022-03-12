@@ -18,7 +18,7 @@ grpcio==1.29.0
 gunicorn==20.0.4
 idna==2.9
 phonenumbers==8.12.5
-Pillow==7.1.2
+Pillow==9.0.1
 protobuf==3.12.2
 pyasn1==0.4.8
 pyasn1-modules==0.2.8
